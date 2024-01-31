@@ -1,0 +1,17 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+        "nestjs",
+        "typeorm",
+        "hodfords",
+        "openxmlformats",
+        "officedocument",
+        "spreadsheetml",
+        "uuidv4",
+        "ILIKE",
+        "postbuild"
+    ],
+    "flagWords": ["hte"],
+    "ignorePaths": ["node_modules", "test", "*.spec.ts", "cspell.json"]
+}
