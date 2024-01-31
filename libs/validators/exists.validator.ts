@@ -1,3 +1,4 @@
+import { getDataSource } from '@hodfords/typeorm-helper';
 import { isFunction, isNil, isUndefined } from '@nestjs/common/utils/shared.utils';
 import {
     registerDecorator,
@@ -6,18 +7,19 @@ import {
     ValidatorConstraint,
     ValidatorConstraintInterface
 } from 'class-validator';
-import { BaseEntity, getConnection, SelectQueryBuilder } from 'typeorm';
-import { ColumnTypes } from '../types/column-type.type';
+import { BaseEntity, SelectQueryBuilder } from 'typeorm';
 import { AndWhereQuery } from '../interfaces/and-where-query.interface';
 import { CustomCondition } from '../interfaces/custom-condition.interface';
+import { ColumnTypes } from '../types/column-type.type';
 
+// TODO Upgrade typeorm
 @ValidatorConstraint({ async: true })
 export class ExistsValidator implements ValidatorConstraintInterface {
     async validate(value: any, args: ValidationArguments) {
         let body = args.object as any;
         let data = args.constraints[0];
         let customs = data.customs || [];
-        let query = getConnection().createQueryBuilder().from(data.table, data.table.name).select('id');
+        let query = getDataSource().createQueryBuilder().from(data.table, data.table.name).select('id');
         if (data.caseInsensitive) {
             query.where(` "${data.column}" ILIKE :value`, { value });
         } else {
@@ -29,7 +31,7 @@ export class ExistsValidator implements ValidatorConstraintInterface {
         return !!(await query.limit(1).getRawOne());
     }
 
-    private buildCustomQuery(query: SelectQueryBuilder<unknown>, body: any, customs: any[]) {
+    private buildCustomQuery(query: SelectQueryBuilder<any>, body: any, customs: any[]) {
         for (const custom of customs) {
             const customValue: ColumnTypes = isFunction(custom.value) ? custom.value(body) : custom.value;
             const columnName = custom.column;

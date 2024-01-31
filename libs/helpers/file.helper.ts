@@ -1,18 +1,18 @@
-import { extname } from 'path';
-import { v4 as uuidv4 } from 'uuid';
 import { MulterOptions } from '@nestjs/platform-express/multer/interfaces/multer-options.interface';
 import { Request } from 'express';
 import { diskStorage } from 'multer';
-import { fileUploadFilter } from '../filters/file-upload.filter';
-import { MulterOptionsType } from '../types/multer-options.type';
+import { extname } from 'path';
+import { v4 as uuidv4 } from 'uuid';
 import {
     ALLOWED_FILE_UPLOAD_MIME_TYPES,
+    FILES_UPLOAD_MAXIMUM,
     FILE_UPLOAD_DESTINATION,
-    FILE_UPLOAD_MAX_SIZE,
-    FILES_UPLOAD_MAXIMUM
+    FILE_UPLOAD_MAX_SIZE
 } from '../constants/upload-file.constant';
-import { FileUploadOptionsType } from '../types/file-upload-options.type';
+import { fileUploadFilter } from '../filters/file-upload.filter';
 import { FileUploadConfigurationsType } from '../types/file-upload-configurations.type';
+import { FileUploadOptionsType } from '../types/file-upload-options.type';
+import { MulterOptionsType } from '../types/multer-options.type';
 
 export function fileNameGenerator(
     _req: Request,
