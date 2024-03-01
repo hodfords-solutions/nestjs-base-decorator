@@ -1,7 +1,7 @@
-import { ApiQuery } from '@nestjs/swagger';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { SortDirection } from '../types/sort-direction.type';
+import { ApiQuery } from '@nestjs/swagger';
 import { getAllowedFieldsEnums, validateDirection, validateField } from '../helpers/sort.helper';
+import { SortDirection } from '../types/sort-direction.type';
 import { SortsParamsType } from '../types/sorts-params.type';
 
 export function Sorts(sortParams: SortsParamsType): any {

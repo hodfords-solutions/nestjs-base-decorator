@@ -1,7 +1,6 @@
-import { SortParamsType } from '../types/sort-params.type';
-
 import { ValidateException } from '@hodfords/nestjs-exception';
 import { SortDirection } from '../types/sort-direction.type';
+import { SortParamsType } from '../types/sort-params.type';
 
 function getDefaultSortFields(sortParams: SortParamsType): string[] {
     const defaultSortField = sortParams?.default?.sortField;
