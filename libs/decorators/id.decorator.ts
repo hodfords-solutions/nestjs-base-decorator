@@ -1,6 +1,6 @@
-import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { isUUID } from '@nestjs/common/utils/is-uuid';
 import { UuidException } from '@hodfords/nestjs-exception';
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+import { validate } from 'uuid';
 import { getParamOptions, ParamOptions } from '../helpers/get-params.helper';
 
 export const Id = createParamDecorator((options: ParamOptions | string, ctx: ExecutionContext) => {
@@ -10,7 +10,7 @@ export const Id = createParamDecorator((options: ParamOptions | string, ctx: Exe
     if (!id && paramOptions.nullable) {
         return id;
     }
-    if (!isUUID(id)) {
+    if (!validate(id)) {
         throw new UuidException(paramOptions.key);
     }
     return id;
@@ -29,7 +29,7 @@ export const Ids = createParamDecorator((options: ParamOptions | string, ctx: Ex
             if (!id && paramOptions.nullable) {
                 return id;
             }
-            if (!isUUID(id)) {
+            if (!validate(id)) {
                 throw new UuidException(paramOptions.key);
             }
             return id;

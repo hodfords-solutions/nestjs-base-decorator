@@ -44,7 +44,6 @@ module.exports = {
             },
             {
                 'selector': [
-                    'parameter',
                     'variable',
                     'function',
                     'classProperty',
@@ -55,6 +54,10 @@ module.exports = {
                     'typeMethod'
                 ],
                 'format': ['camelCase']
+            },
+            {   'selector': 'parameter',
+                'format': ['camelCase'],
+                'leadingUnderscore': 'allow'
             },
             {
                 'selector': [

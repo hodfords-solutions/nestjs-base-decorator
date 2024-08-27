@@ -1,6 +1,11 @@
-import { createParamDecorator, ExecutionContext, BadRequestException } from '@nestjs/common';
-import momentTimezone from 'moment-timezone';
+import { BadRequestException, createParamDecorator, ExecutionContext } from '@nestjs/common';
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
 import { getParamOptions, ParamOptions } from '../helpers/get-params.helper';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export const Timezone = createParamDecorator((options: ParamOptions | string, ctx: ExecutionContext) => {
     const paramOptions = getParamOptions(options);
@@ -9,9 +14,14 @@ export const Timezone = createParamDecorator((options: ParamOptions | string, ct
     if (!timezone && paramOptions.nullable) {
         return timezone;
     }
-    if (!momentTimezone.tz.zone(timezone)) {
+
+    try {
+        const dayjsLocal = dayjs(new Date());
+        if (dayjsLocal.tz(timezone)) {
+            return timezone;
+        }
+        throw new BadRequestException({ translate: 'error.invalid_timezone' });
+    } catch {
         throw new BadRequestException({ translate: 'error.invalid_timezone' });
     }
-
-    return timezone;
 });
