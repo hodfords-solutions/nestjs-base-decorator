@@ -26,7 +26,7 @@ export const Pagination = createParamDecorator(
         };
     },
     [
-        (target: any, key: string | symbol) => {
+        ((target: any, key: string | symbol) => {
             const propertyDescriptor = Object.getOwnPropertyDescriptor(target, key);
             if (propertyDescriptor) {
                 ApiQuery({
@@ -40,7 +40,7 @@ export const Pagination = createParamDecorator(
                     required: false
                 })(target, key, propertyDescriptor);
             }
-        }
+        }) as ParameterDecorator
     ]
 );
 
