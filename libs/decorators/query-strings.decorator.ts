@@ -17,8 +17,8 @@ export function QueryStrings(key: string, options: ApiQueryOptions = {}) {
             ApiQuery({
                 name: key,
                 required: false,
-                type: Boolean,
-                example: `?value=value1,value2`,
+                type: String,
+                example: `value1,value2,...`,
                 ...options
             })(target, property, propertyDescriptor);
         }
