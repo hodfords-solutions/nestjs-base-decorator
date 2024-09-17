@@ -2,17 +2,25 @@
     "version": "0.2",
     "language": "en",
     "words": [
-        "nestjs",
-        "typeorm",
         "hodfords",
-        "openxmlformats",
-        "officedocument",
-        "spreadsheetml",
-        "uuidv4",
         "ILIKE",
+        "Ints",
+        "nestjs",
+        "npmjs",
+        "officedocument",
+        "openxmlformats",
         "postbuild",
-        "npmjs"
+        "spreadsheetml",
+        "typeorm",
+        "uuidv4"
     ],
-    "flagWords": ["hte"],
-    "ignorePaths": ["node_modules", "test", "*.spec.ts", "cspell.json"]
+    "flagWords": [
+        "hte"
+    ],
+    "ignorePaths": [
+        "node_modules",
+        "test",
+        "*.spec.ts",
+        "cspell.json"
+    ]
 }
