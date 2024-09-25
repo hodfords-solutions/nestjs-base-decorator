@@ -4,9 +4,9 @@ import { validate } from 'uuid';
 import { getParamOptions, ParamOptions } from '../helpers/get-params.helper';
 
 export const Id = createParamDecorator((options: ParamOptions | string, ctx: ExecutionContext) => {
-    let paramOptions = getParamOptions(options, 'id');
+    const paramOptions = getParamOptions(options, 'id');
     const request = ctx.switchToHttp().getRequest();
-    let id = request.params[paramOptions.key] || request.query[paramOptions.key];
+    const id = request.params[paramOptions.key] || request.query[paramOptions.key];
     if (!id && paramOptions.nullable) {
         return id;
     }
@@ -17,9 +17,9 @@ export const Id = createParamDecorator((options: ParamOptions | string, ctx: Exe
 });
 
 export const Ids = createParamDecorator((options: ParamOptions | string, ctx: ExecutionContext) => {
-    let paramOptions = getParamOptions(options, 'ids');
+    const paramOptions = getParamOptions(options, 'ids');
     const request = ctx.switchToHttp().getRequest();
-    let ids = request.query[paramOptions.key];
+    const ids = request.query[paramOptions.key];
     if (!ids) {
         return [];
     }
