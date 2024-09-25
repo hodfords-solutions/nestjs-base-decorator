@@ -17,17 +17,17 @@ export class RequireToUploadFilesInterceptor implements NestInterceptor {
         const fieldNames = this.reflector.get<string[]>('fieldNames', context.getHandler());
 
         if (!request.files) {
-            throw new UnprocessableEntityException({ translate: 'files_are_required' });
+            throw new UnprocessableEntityException({ translate: 'error.files_are_required' });
         }
 
         if (Array.isArray(request.files) && !request.files.length) {
-            throw new UnprocessableEntityException({ translate: 'files_are_required' });
+            throw new UnprocessableEntityException({ translate: 'error.files_are_required' });
         }
 
         if (fieldNames && isObject(request.files) && !Array.isArray(request.files)) {
             for (const filedName of fieldNames) {
                 if (!request.files[filedName]?.length) {
-                    throw new UnprocessableEntityException({ translate: 'files_are_required' });
+                    throw new UnprocessableEntityException({ translate: 'error.files_are_required' });
                 }
             }
         }

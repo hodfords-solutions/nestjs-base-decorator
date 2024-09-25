@@ -45,7 +45,7 @@ const sortDecorator = createParamDecorator(
             .filter((sort) => sort)
             .map((sort: string) => {
                 const sortArr: string[] = sort.split(':', 2);
-                let sortOrder: SortMultipleParams = {
+                const sortOrder: SortMultipleParams = {
                     field: sortArr[0].trim(),
                     direction: ((sortArr[1] ? sortArr[1].toUpperCase() : undefined) as any) || 'ASC'
                 };

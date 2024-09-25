@@ -24,7 +24,7 @@ const enumsDecorator = createParamDecorator((options: EnumsParamOptions, ctx: Ex
 
     const enumValues = Object.values(options.enum).map((item) => String(item));
     if (options.singleValue) {
-        if ((!values[0] && !paramOptions.nullable) || (values[0] && !enumValues.includes(values[0]))) {
+        if ((!values?.at(0) && !paramOptions.nullable) || (values?.at(0) && !enumValues.includes(values[0]))) {
             throw new ValidateFieldException(options.key, 'invalid_enum_value', 'invalidEnum');
         }
 

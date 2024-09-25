@@ -19,28 +19,32 @@ npm install @hodfords/nestjs-base-decorator
 - [Installation 🤖](#installation-)
 - [Table of Contents](#table-of-contents)
 - [Usage 🚀](#usage-)
-  - [@EnumQuery()](#enumquery)
-  - [@EnumsQuery()](#enumsquery)
-  - [@Id()](#id)
-  - [@Ids()](#ids)
-  - [@Int()](#int)
-  - [@Ints()](#ints)
-  - [@Pagination()](#pagination)
-  - [@QueryBoolean()](#queryboolean)
-  - [@QueryStrings()](#querystrings)
-  - [@RealIp()](#realip)
-  - [@RequireToUploadFile()](#requiretouploadfile)
-  - [@RequireToUploadFiles()](#requiretouploadfiles)
-  - [@Sort()](#sort)
-  - [@Sorts()](#sorts)
-  - [@Timestamp()](#timestamp)
-  - [@Timezone()](#timezone)
-  - [@UserAgent()](#useragent)
-  - [@Value()](#value)
+  - [Param Decorators](#param-decorators)
+    - [@EnumQuery()](#enumquery)
+    - [@EnumsQuery()](#enumsquery)
+    - [@Id()](#id)
+    - [@Ids()](#ids)
+    - [@Int()](#int)
+    - [@Ints()](#ints)
+    - [@Pagination()](#pagination)
+    - [@QueryBoolean()](#queryboolean)
+    - [@QueryStrings()](#querystrings)
+    - [@RealIp()](#realip)
+    - [@RequireToUploadFile()](#requiretouploadfile)
+    - [@RequireToUploadFiles()](#requiretouploadfiles)
+    - [@Sort()](#sort)
+    - [@Sorts()](#sorts)
+    - [@Timestamp()](#timestamp)
+    - [@Timezone()](#timezone)
+    - [@UserAgent()](#useragent)
+    - [@Value()](#value)
+  - [Validators](#validators)
 
 ## Usage 🚀
 
-### @EnumQuery()
+### Param Decorators
+
+#### @EnumQuery()
 
 Use the `EnumQuery` decorator when you expect a single enum value as a query parameter. This will validate the query parameter against a predefined enum and generate Swagger documentation for it.
 
@@ -88,7 +92,7 @@ export class ItemController {
 */
 ```
 
-### @EnumsQuery()
+#### @EnumsQuery()
 
 Use the `EnumsQuery` decorator when you expect multiple enum values as query parameters, separated by a custom delimiter (default is `,`). This will validate the query parameters against a predefined enum and generate Swagger documentation for them.
 
@@ -138,7 +142,7 @@ export class ProductController {
 */
 ```
 
-### @Id()
+#### @Id()
 
 Use the `Id` decorator to validate a single UUID, either from the route parameters or query parameters. If the provided value is not a valid UUID, it will throw a `UuidException` from the `@hodfords/nestjs-exception` package.
 
@@ -169,7 +173,7 @@ export class UserController {
 */
 ```
 
-### @Ids()
+#### @Ids()
 
 Use the `Ids` decorator when you need to validate multiple UUIDs passed as a comma-separated list in the `query` parameters. If any value in the list is not a valid UUID, it throws a `UuidException` from the `@hodfords/nestjs-exception` package.
 
@@ -200,7 +204,7 @@ export class UserController {
 */
 ```
 
-### @Int()
+#### @Int()
 
 The `Int` decorator is used to validate a single integer, either from route parameters or query parameters.
 
@@ -226,7 +230,7 @@ export class UserController {
 */
 ```
 
-### @Ints()
+#### @Ints()
 
 The `Ints` decorator is used to validate multiple integers passed as a comma-separated list in query parameters.
 
@@ -252,7 +256,7 @@ export class UserController {
 */
 ```
 
-### @Pagination()
+#### @Pagination()
 
 The `Pagination` decorator is used to handle pagination logic by extracting the `page` and `perPage` parameters from the query string of an incoming request. The decorator also includes automatic Swagger documentation using `nestjs/swagger`.
 
@@ -284,7 +288,7 @@ export class UserController {
 */
 ```
 
-### @QueryBoolean()
+#### @QueryBoolean()
 
 The `QueryBoolean` decorator allows you to extract and validate boolean values from the query parameters in a NestJS route. It checks if the query parameter is `'true'` and returns `true`, otherwise it returns `false`.
 
@@ -313,7 +317,7 @@ export class UsersController {
 */
 ```
 
-### @QueryStrings()
+#### @QueryStrings()
 
 The `QueryStrings` decorator extracts query parameters from HTTP requests, parses them as comma-separated strings, and ensures uniqueness by eliminating duplicates. Additionally, it integrates with `@nestjs/swagger` to automatically document the query parameters in the Swagger UI.
 
@@ -341,7 +345,7 @@ export class AppController {
 */
 ```
 
-### @RealIp()
+#### @RealIp()
 
 The `RealIp` decorator is a custom NestJS decorator that retrieves the client's real IP address from an incoming HTTP request. It leverages the `@supercharge/request-ip` library to accurately identify the IP address, even if the client is behind a proxy or using a load balancer.
 
@@ -366,7 +370,7 @@ export class UserController {
 */
 ```
 
-### @RequireToUploadFile()
+#### @RequireToUploadFile()
 
 The `RequireToUploadFile` decorator is a custom NestJS decorator that simplifies file upload handling for single and multiple file uploads. It leverages NestJS `Interceptors` and custom interceptors to validate file uploads. The decorator allows developers to specify file upload configurations like file size limits, allowed MIME types, and custom storage engines.
 
@@ -420,7 +424,7 @@ export class FileController {
 }
 ```
 
-### @RequireToUploadFiles()
+#### @RequireToUploadFiles()
 
 The `RequireToUploadFiles` decorator simplifies the process of uploading multiple files with different field names in NestJS. It uses the `FileFieldsInterceptor` from `@nestjs/platform-express` to manage multiple file uploads from distinct form fields and allows customization through file upload options. The decorator integrates with custom interceptors for additional validation and handling of the uploaded files.
 
@@ -456,7 +460,7 @@ export class FileController {
 }
 ```
 
-### @Sort()
+#### @Sort()
 
 The `Sort` decorator simplifies handling sorting parameters in NestJS controllers. It defines two query parameters, `sortField` and `sortDirection`, allowing API clients to specify how to sort data in their requests. The decorator integrates with Swagger for automatic API documentation and validates the sorting fields and directions against predefined sets of allowed values.
 
@@ -490,7 +494,7 @@ export class UserController {
 */
 ```
 
-### @Sorts()
+#### @Sorts()
 
 The `Sorts` decorator provides an elegant solution for handling multiple sorting fields in NestJS controllers. It allows clients to specify multiple fields and their respective sort directions. The decorator automatically generates Swagger documentation for these parameters and ensures proper validation of both fields and directions.
 
@@ -535,7 +539,7 @@ export class UserController {
 */
 ```
 
-### @Timestamp()
+#### @Timestamp()
 
 The `Timestamp` decorator is used to extract and validate a timestamp from the request parameters or query in a NestJS controller. It ensures the timestamp is valid and handles optional or nullable parameters.
 
@@ -566,7 +570,7 @@ export class EventController {
 */
 ```
 
-### @Timezone()
+#### @Timezone()
 
 The `Timezone` decorator is designed to validate and extract a timezone string from request parameters or query in a NestJS controller. It leverages the `dayjs` library along with the `timezone` and `utc` plugins to ensure that the provided timezone is valid.
 
@@ -597,7 +601,7 @@ export class EventController {
 */
 ```
 
-### @UserAgent()
+#### @UserAgent()
 
 The `UserAgent` decorator is a simple utility that extracts the `User-Agent` header from incoming requests in a NestJS application. This header typically contains information about the client's browser, operating system, and device.
 
@@ -617,7 +621,7 @@ export class UserController {
 }
 ```
 
-### @Value()
+#### @Value()
 
 The `Value` decorator is used to extract the `value` property from the payload of a microservice request in NestJS. It is a wrapper around the `Payload` decorator provided by `@nestjs/microservices`, allowing you to directly access the `value` property in microservice message handlers.
 
@@ -638,3 +642,69 @@ export class MathController {
 }
 
 ```
+
+### Validators
+
+#### @ExistIds()
+
+The `@ExistIds()` decorator is used to validate whether all provided IDs exist in a specified database table column. It uses `TypeORM` to query the table and check if the given values match the records in the database.
+
+Parameters:
+
+- `table`: The `Entity` class (which extends `BaseEntity`) represents the database table where the validation will be performed.
+- `allowEmpty`: A boolean to allow empty arrays as valid input (optional, default: `false`).
+- `validationOptions`: `ValidationOptions` from `class-validator` to configure custom messages and options.
+
+Example for usage:
+
+```typescript
+import { ExistIds } from '@hodfords/nestjs-base-decorator';
+import { Entity } from 'typeorm';
+import { BaseEntity } from '@hodfords/typeorm-helper';
+
+@Entity()
+export class UserEntity extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+}
+
+class UserRequestDto {
+  @ExistIds(UserEntity)
+  userIds: string[];
+}
+```
+
+#### @Exists()
+
+The `@Exists()` decorator is used to validate if a specific value exists in a column of a database table. It supports case-insensitive searches and custom query conditions to allow more flexible validations.
+
+Parameters:
+
+- `table`: The `Entity` class (which extends `BaseEntity`) represents the database table where the validation will be performed.
+- `column`: The column name in the database to check the existence of the value.
+- `caseInsensitive`: A boolean to enable case-insensitive comparison (option, default: `false`).
+- `customs`: An array of custom conditions that apply additional filters to the query (optional).
+- `validationOptions`: `ValidationOptions` from `class-validator` to configure custom messages and options (optional).
+
+```typescript
+import { Exists } from '@hodfords/nestjs-base-decorator';
+import { Entity } from 'typeorm';
+import { IsEmail } from 'class-validator';
+import { BaseEntity } from '@hodfords/typeorm-helper';
+
+@Entity()
+export class UserEntity extends BaseEntity {
+  @Column()
+  email: string;
+}
+
+class UserRequestDto {
+  @Exists(UserEntity, 'email')
+  @IsEmail()
+  email: string;
+}
+```
+
+## License
+
+This project is licensed under the MIT License
