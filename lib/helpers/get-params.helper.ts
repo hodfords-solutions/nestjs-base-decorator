@@ -6,7 +6,7 @@ export type ParamOptions = {
 };
 
 export function getParamOptions(options: ParamOptions | string, defaultKey = '') {
-    let newOptions: ParamOptions = {
+    const newOptions: ParamOptions = {
         key: defaultKey,
         nullable: false
     };
