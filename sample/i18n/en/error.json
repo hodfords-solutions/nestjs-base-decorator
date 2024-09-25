@@ -1,0 +1,6 @@
+{
+    "field_malformed": "The {field} is malformed.",
+    "invalid_timezone": "Invalid timezone",
+    "files_are_required": "Files are required",
+    "file_is_required": "File is required"
+}
