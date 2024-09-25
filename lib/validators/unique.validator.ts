@@ -26,7 +26,7 @@ export function Unique(
     customs?: CustomCondition[],
     validationOptions?: ValidationOptions
 ) {
-    let message = { message: 'The $property has already been taken.' };
+    const message = { message: 'The $property has already been taken.' };
     if (validationOptions && validationOptions.each) {
         message.message = 'each value in $property has already been taken.';
     }

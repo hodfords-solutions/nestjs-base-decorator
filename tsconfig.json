@@ -10,7 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2017",
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
     "strict": true,
@@ -20,9 +20,6 @@
     "noImplicitReturns": true,
     "useUnknownInCatchVariables": true
   },
-  "include": [
-    "libs"
-  ],
   "exclude": [
     "tests",
     "src",

@@ -16,10 +16,10 @@ import { ColumnTypes } from '../types/column-type.type';
 @ValidatorConstraint({ async: true })
 export class ExistsValidator implements ValidatorConstraintInterface {
     async validate(value: any, args: ValidationArguments) {
-        let body = args.object as any;
-        let data = args.constraints[0];
-        let customs = data.customs || [];
-        let query = getDataSource().createQueryBuilder().from(data.table, data.table.name).select('id');
+        const body = args.object as any;
+        const data = args.constraints[0];
+        const customs = data.customs || [];
+        const query = getDataSource().createQueryBuilder().from(data.table, data.table.name).select('id');
         if (data.caseInsensitive) {
             query.where(` "${data.column}" ILIKE :value`, { value });
         } else {
@@ -76,7 +76,7 @@ export function Exists(
     customs?: CustomCondition[],
     validationOptions?: ValidationOptions
 ) {
-    let message = { message: 'The $property does not exist.' };
+    const message = { message: 'The $property does not exist.' };
     if (validationOptions && validationOptions.each) {
         message.message = 'each value in $property does not exist.';
     }

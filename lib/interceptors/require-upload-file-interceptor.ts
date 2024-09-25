@@ -12,7 +12,7 @@ export class RequireToUploadFileInterceptor implements NestInterceptor {
         const request = context.switchToHttp().getRequest();
 
         if (!request.file) {
-            throw new UnprocessableEntityException({ translate: 'file_is_required' });
+            throw new UnprocessableEntityException({ translate: 'error.file_is_required' });
         }
 
         return next.handle();
