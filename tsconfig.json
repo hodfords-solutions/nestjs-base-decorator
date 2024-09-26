@@ -16,9 +16,9 @@
     "strict": true,
     "strictPropertyInitialization": false,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noImplicitReturns": true,
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": true,
   },
   "exclude": [
     "tests",

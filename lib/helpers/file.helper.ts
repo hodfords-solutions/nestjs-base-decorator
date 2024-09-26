@@ -15,7 +15,7 @@ import { FileUploadOptionsType } from '../types/file-upload-options.type';
 import { MulterOptionsType } from '../types/multer-options.type';
 
 export function fileNameGenerator(
-    _req: Request,
+    req: Request,
     file: Express.Multer.File,
     callback: (error: Error | null, fileName: string) => void
 ): void {

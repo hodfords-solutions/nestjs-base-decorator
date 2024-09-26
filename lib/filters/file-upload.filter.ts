@@ -12,7 +12,7 @@ function isValidUploadMultipleFiles(files: Array<Express.Multer.File>, allowedMi
 }
 
 export function fileUploadFilter(
-    _req: Request,
+    req: Request,
     attachment: Express.Multer.File | Array<Express.Multer.File>,
     allowedMimeTypes: string[],
     callback: (error: Error | null, acceptFile: boolean) => void
