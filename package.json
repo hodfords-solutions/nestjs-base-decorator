@@ -1,6 +1,6 @@
 {
   "name": "@hodfords/nestjs-base-decorator",
-  "version": "10.1.4",
+  "version": "10.1.5",
   "description": "Provides common decorators for simplifying and standardizing NestJS application development",
   "main": "index.js",
   "scripts": {
