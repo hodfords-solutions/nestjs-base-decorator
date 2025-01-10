@@ -38,12 +38,8 @@ const sortDecorator = createParamDecorator((sortParams: SortParamsType, ctx: Exe
     }
 
     const request = ctx.switchToHttp().getRequest();
-    const sortField: string = request.query[sortParams.sortField] || sortParams?.default?.sortField || 'createdAt';
-    const sortDirection = (
-        request.query[sortParams.sortDirection] ||
-        sortParams?.default?.sortDirection ||
-        'DESC'
-    ).toUpperCase();
+    const sortField = request.query[sortParams.sortField] || sortParams?.default?.sortField || 'createdAt';
+    const sortDirection = request.query[sortParams.sortDirection] || sortParams?.default?.sortDirection || 'DESC';
 
     validateField(getAllowedFieldsEnums(sortParams), sortField);
     validateDirection(sortDirection);
