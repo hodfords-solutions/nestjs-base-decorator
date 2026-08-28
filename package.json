@@ -32,17 +32,17 @@
     },
     "homepage": "https://github.com/hodfords-solutions/nestjs-base-decorator#readme",
     "devDependencies": {
-        "@hodfords/nestjs-cls-translation": "11.1.0",
+        "@hodfords/nestjs-cls-translation": "12.0.0",
         "@hodfords/nestjs-eslint-config": "11.0.2",
-        "@hodfords/nestjs-exception": "11.0.2",
+        "@hodfords/nestjs-exception": "12.0.0",
         "@hodfords/nestjs-prettier-config": "11.0.1",
-        "@hodfords/typeorm-helper": "11.1.4",
+        "@hodfords/typeorm-helper": "12.0.0",
         "@nestjs/common": "12.0.1",
         "@nestjs/core": "12.0.1",
         "@nestjs/platform-express": "12.0.1",
         "@nestjs/swagger": "12.0.0",
         "@nestjs/testing": "12.0.1",
-        "@nestjs/typeorm": "11.0.0",
+        "@nestjs/typeorm": "12.0.1",
         "@swc/core": "^1.13.5",
         "@types/multer": "2.0.0",
         "@types/node": "25.2.0",
@@ -72,15 +72,6 @@
         "dayjs": "1.11.19",
         "es-toolkit": "1.51.0"
     },
-    "overrides": {
-        "lodash": "4.17.23",
-        "@nestjs/typeorm": {
-            "@nestjs/common": "$@nestjs/common",
-            "@nestjs/core": "$@nestjs/core",
-            "typeorm": "$typeorm"
-        },
-        "ioredis": "^5.8.2"
-    },
     "type": "module",
     "types": "./index.d.ts",
     "exports": {
@@ -93,5 +84,11 @@
     },
     "engines": {
         "node": ">=20.19.0"
+    },
+    "overrides": {
+        "nestjs-cls": {
+            "@nestjs/common": "$@nestjs/common",
+            "@nestjs/core": "$@nestjs/core"
+        }
     }
 }

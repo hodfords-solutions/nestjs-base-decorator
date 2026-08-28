@@ -1,5 +1,5 @@
 import { getDataSource } from '@hodfords/typeorm-helper';
-import { isFunction, isNil, isUndefined } from '@nestjs/common/utils/shared.utils';
+import { isFunction, isNil, isUndefined } from '@nestjs/common/utils/shared.utils.js';
 import {
     registerDecorator,
     ValidationArguments,

@@ -1,4 +1,4 @@
-import { MulterOptions } from '@nestjs/platform-express/multer/interfaces/multer-options.interface';
+import { MulterOptions } from '@nestjs/platform-express/multer/interfaces/multer-options.interface.js';
 import { Request } from 'express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
