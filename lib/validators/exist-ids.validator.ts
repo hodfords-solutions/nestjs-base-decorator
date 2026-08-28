@@ -7,7 +7,7 @@ import {
 } from 'class-validator';
 import { BaseEntity } from 'typeorm';
 import { getDataSource } from '@hodfords/typeorm-helper';
-import lodash from 'lodash';
+import { uniq } from 'es-toolkit';
 
 @ValidatorConstraint({ async: true })
 export class ExistIdsValidator implements ValidatorConstraintInterface {
@@ -30,7 +30,7 @@ export class ExistIdsValidator implements ValidatorConstraintInterface {
             .where(` "${data.column}" IN (:...value)`, { value })
             .getRawMany();
 
-        return result.length === lodash.uniq(value).length;
+        return result.length === uniq(value).length;
     }
 }
 

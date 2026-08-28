@@ -44,7 +44,6 @@
         "@nestjs/testing": "12.0.1",
         "@nestjs/typeorm": "11.0.0",
         "@swc/core": "^1.13.5",
-        "@types/lodash": "4.17.23",
         "@types/multer": "2.0.0",
         "@types/node": "25.2.0",
         "@types/uuid": "11.0.0",
@@ -57,7 +56,6 @@
         "husky": "9.1.7",
         "is-ci": "4.1.0",
         "lint-staged": "16.2.7",
-        "lodash": "4.17.23",
         "prettier": "3.8.1",
         "reflect-metadata": "0.2.2",
         "rimraf": "6.1.2",
@@ -71,7 +69,8 @@
     "dependencies": {
         "@nestjs/microservices": "12.0.1",
         "@supercharge/request-ip": "1.2.0",
-        "dayjs": "1.11.19"
+        "dayjs": "1.11.19",
+        "es-toolkit": "1.51.0"
     },
     "overrides": {
         "lodash": "4.17.23",

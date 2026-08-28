@@ -1,7 +1,7 @@
 import { ValidateException } from '@hodfords/nestjs-exception';
 import { SortDirection } from '../types/sort-direction.type.js';
 import { SortParamsType } from '../types/sort-params.type.js';
-import lodash from 'lodash';
+import { isString } from 'es-toolkit';
 
 function getDefaultSortFields(sortParams: SortParamsType): string[] {
     const defaultSortField = sortParams?.default?.sortField;
@@ -16,7 +16,7 @@ export function getAllowedFieldsEnums(sortParams: SortParamsType): string[] {
 }
 
 export function validateDirection(direction: SortDirection): void {
-    if (!lodash.isString(direction) || !['ASC', 'DESC'].includes(direction)) {
+    if (!isString(direction) || !['ASC', 'DESC'].includes(direction)) {
         throw new ValidateException([
             {
                 property: 'sortDirection',
@@ -29,7 +29,7 @@ export function validateDirection(direction: SortDirection): void {
 }
 
 export function validateField(allowedFields: string[], field: string, isSortMultiple: boolean = false) {
-    if (!lodash.isString(field) || !allowedFields.includes(field)) {
+    if (!isString(field) || !allowedFields.includes(field)) {
         throw new ValidateException([
             {
                 property: `sortField${isSortMultiple ? 's' : ''}`,

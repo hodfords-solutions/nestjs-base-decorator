@@ -6,7 +6,7 @@ import {
     UnprocessableEntityException
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import lodash from 'lodash';
+import { isObject } from 'es-toolkit/compat';
 
 @Injectable()
 export class RequireToUploadFilesInterceptor implements NestInterceptor {
@@ -24,7 +24,7 @@ export class RequireToUploadFilesInterceptor implements NestInterceptor {
             throw new UnprocessableEntityException({ translate: 'error.files_are_required' });
         }
 
-        if (fieldNames && lodash.isObject(request.files) && !Array.isArray(request.files)) {
+        if (fieldNames && isObject(request.files) && !Array.isArray(request.files)) {
             for (const filedName of fieldNames) {
                 if (!request.files[filedName]?.length) {
                     throw new UnprocessableEntityException({ translate: 'error.files_are_required' });
