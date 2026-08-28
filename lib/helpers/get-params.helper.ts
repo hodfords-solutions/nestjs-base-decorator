@@ -1,4 +1,4 @@
-import { isString, isUndefined } from '@nestjs/common/utils/shared.utils';
+import { isString, isUndefined } from '@nestjs/common/utils/shared.utils.js';
 
 export type ParamOptions = {
     key: string;

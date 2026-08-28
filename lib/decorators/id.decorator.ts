@@ -1,7 +1,7 @@
 import { UuidException } from '@hodfords/nestjs-exception';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { validate } from 'uuid';
-import { getParamOptions, ParamOptions } from '../helpers/get-params.helper';
+import { getParamOptions, ParamOptions } from '../helpers/get-params.helper.js';
 
 export const Id = createParamDecorator((options: ParamOptions | string, ctx: ExecutionContext) => {
     const paramOptions = getParamOptions(options, 'id');

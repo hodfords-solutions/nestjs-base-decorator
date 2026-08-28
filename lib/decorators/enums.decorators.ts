@@ -1,8 +1,13 @@
 import { ValidateFieldException } from '@hodfords/nestjs-exception';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { ApiQuery } from '@nestjs/swagger';
-import { SwaggerEnumType } from '@nestjs/swagger/dist/types/swagger-enum.type';
-import { getParamOptions, ParamOptions } from '../helpers/get-params.helper';
+import { getParamOptions, ParamOptions } from '../helpers/get-params.helper.js';
+
+/**
+ * Mirrors `SwaggerEnumType` from `@nestjs/swagger`, which is no longer reachable
+ * as a deep import under the ESM `exports` map of `@nestjs/swagger` v12.
+ */
+export type SwaggerEnumType = string[] | number[] | boolean[] | (string | number | boolean)[] | Record<number, string>;
 
 type EnumsParamOptions = ParamOptions & {
     enum: SwaggerEnumType;

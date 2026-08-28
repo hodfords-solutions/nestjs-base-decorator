@@ -7,7 +7,7 @@ import {
 } from 'class-validator';
 import { BaseEntity } from 'typeorm';
 import { getDataSource } from '@hodfords/typeorm-helper';
-import { uniq } from 'lodash';
+import { uniq } from 'es-toolkit';
 
 @ValidatorConstraint({ async: true })
 export class ExistIdsValidator implements ValidatorConstraintInterface {

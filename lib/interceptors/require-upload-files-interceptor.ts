@@ -6,7 +6,7 @@ import {
     UnprocessableEntityException
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { isObject } from 'lodash';
+import { isObject } from 'es-toolkit/compat';
 
 @Injectable()
 export class RequireToUploadFilesInterceptor implements NestInterceptor {

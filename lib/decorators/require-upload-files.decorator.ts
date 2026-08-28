@@ -1,8 +1,8 @@
 import { applyDecorators, SetMetadata, UseInterceptors } from '@nestjs/common';
 import { FileFieldsInterceptor } from '@nestjs/platform-express';
-import { getFileUploadConfigurations } from '../helpers/file.helper';
-import { RequireToUploadFilesInterceptor } from '../interceptors/require-upload-files-interceptor';
-import { FilesUploadParamsType } from '../types/files-upload-params.type';
+import { getFileUploadConfigurations } from '../helpers/file.helper.js';
+import { RequireToUploadFilesInterceptor } from '../interceptors/require-upload-files-interceptor.js';
+import { FilesUploadParamsType } from '../types/files-upload-params.type.js';
 
 export function RequireToUploadFiles({ fieldNames, options }: FilesUploadParamsType) {
     const { maxCount: defaultMaxCount, multerOptions } = getFileUploadConfigurations(options || {});

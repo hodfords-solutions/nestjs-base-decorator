@@ -6,8 +6,8 @@ import {
     ValidatorConstraintInterface
 } from 'class-validator';
 import { BaseEntity } from 'typeorm';
-import { CustomCondition } from '../interfaces/custom-condition.interface';
-import { ExistsValidator } from './exists.validator';
+import { CustomCondition } from '../interfaces/custom-condition.interface.js';
+import { ExistsValidator } from './exists.validator.js';
 
 @ValidatorConstraint({ async: true })
 export class UniqueValidator implements ValidatorConstraintInterface {

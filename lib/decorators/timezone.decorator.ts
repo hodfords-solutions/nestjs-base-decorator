@@ -1,8 +1,8 @@
 import { BadRequestException, createParamDecorator, ExecutionContext } from '@nestjs/common';
 import dayjs from 'dayjs';
-import timezone from 'dayjs/plugin/timezone';
-import utc from 'dayjs/plugin/utc';
-import { getParamOptions, ParamOptions } from '../helpers/get-params.helper';
+import timezone from 'dayjs/plugin/timezone.js';
+import utc from 'dayjs/plugin/utc.js';
+import { getParamOptions, ParamOptions } from '../helpers/get-params.helper.js';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
