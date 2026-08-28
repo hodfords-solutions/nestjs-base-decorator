@@ -1,8 +1,8 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { ApiQuery } from '@nestjs/swagger';
-import { getAllowedFieldsEnums, validateDirection, validateField } from '../helpers/sort.helper';
-import { SortDirection } from '../types/sort-direction.type';
-import { SortParamsType } from '../types/sort-params.type';
+import { getAllowedFieldsEnums, validateDirection, validateField } from '../helpers/sort.helper.js';
+import { SortDirection } from '../types/sort-direction.type.js';
+import { SortParamsType } from '../types/sort-params.type.js';
 
 export function Sort(sortParams: SortParamsType): any {
     return (target: any, key: string, descriptor: any) => {

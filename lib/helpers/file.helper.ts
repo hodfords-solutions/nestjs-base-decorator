@@ -8,11 +8,11 @@ import {
     FILES_UPLOAD_MAXIMUM,
     FILE_UPLOAD_DESTINATION,
     FILE_UPLOAD_MAX_SIZE
-} from '../constants/upload-file.constant';
-import { fileUploadFilter } from '../filters/file-upload.filter';
-import { FileUploadConfigurationsType } from '../types/file-upload-configurations.type';
-import { FileUploadOptionsType } from '../types/file-upload-options.type';
-import { MulterOptionsType } from '../types/multer-options.type';
+} from '../constants/upload-file.constant.js';
+import { fileUploadFilter } from '../filters/file-upload.filter.js';
+import { FileUploadConfigurationsType } from '../types/file-upload-configurations.type.js';
+import { FileUploadOptionsType } from '../types/file-upload-options.type.js';
+import { MulterOptionsType } from '../types/multer-options.type.js';
 
 export function fileNameGenerator(
     req: Request,

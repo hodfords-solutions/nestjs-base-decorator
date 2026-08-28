@@ -21,7 +21,7 @@ import {
     Timezone,
     UserAgent
 } from 'lib';
-import { CategoryEnum, StatusEnum } from './app.enum';
+import { CategoryEnum, StatusEnum } from './app.enum.js';
 
 @Controller()
 export class AppController {

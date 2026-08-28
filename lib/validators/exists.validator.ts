@@ -8,9 +8,9 @@ import {
     ValidatorConstraintInterface
 } from 'class-validator';
 import { BaseEntity, SelectQueryBuilder } from 'typeorm';
-import { AndWhereQuery } from '../interfaces/and-where-query.interface';
-import { CustomCondition } from '../interfaces/custom-condition.interface';
-import { ColumnTypes } from '../types/column-type.type';
+import { AndWhereQuery } from '../interfaces/and-where-query.interface.js';
+import { CustomCondition } from '../interfaces/custom-condition.interface.js';
+import { ColumnTypes } from '../types/column-type.type.js';
 
 // TODO Upgrade typeorm
 @ValidatorConstraint({ async: true })

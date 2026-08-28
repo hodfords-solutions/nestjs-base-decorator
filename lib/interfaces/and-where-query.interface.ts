@@ -1,5 +1,4 @@
-import { ObjectLiteral } from 'typeorm/common/ObjectLiteral';
-import { Brackets } from 'typeorm/query-builder/Brackets';
+import { Brackets, ObjectLiteral } from 'typeorm';
 
 export interface AndWhereQuery {
     query: string | Brackets | ((qb: this) => string) | ObjectLiteral | ObjectLiteral[];

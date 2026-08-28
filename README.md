@@ -14,6 +14,18 @@ To begin using it, we first install the required dependencies.
 npm install @hodfords/nestjs-base-decorator
 ```
 
+### Requirements
+
+- This package is **ESM-only**. Import it with `import`; `require()` is not supported.
+- Node.js `>=20.19.0` (or `>=22.12`, `>=24.15`, `>=26`).
+
+### Compatibility
+
+| `@hodfords/nestjs-base-decorator` | NestJS  |
+| --------------------------------- | ------- |
+| `v12.x`                           | `v12.x` |
+| `v11.x`                           | `v11.x` |
+
 ## Table of Contents
 
 - [Installation 🤖](#installation-)

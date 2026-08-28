@@ -1,7 +1,7 @@
 import { ValidateFieldException } from '@hodfords/nestjs-exception';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import dayjs from 'dayjs';
-import { getParamOptions, ParamOptions } from '../helpers/get-params.helper';
+import { getParamOptions, ParamOptions } from '../helpers/get-params.helper.js';
 
 export const Timestamp = createParamDecorator((options: ParamOptions | string, ctx: ExecutionContext) => {
     const paramOptions = getParamOptions(options);
