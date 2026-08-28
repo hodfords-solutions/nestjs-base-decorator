@@ -12,7 +12,9 @@ const currentDir = path.dirname(fileURLToPath(import.meta.url));
 const i18nConfig = TranslationModule.forRoot({
     fallbackLanguage: 'en',
     loaderOptions: {
-        path: path.join(currentDir, 'i18n/'),
+        // Read straight from the sample/i18n sources: Nest copies assets asynchronously,
+        // so the app can boot before the files land in dist.
+        path: path.join(currentDir, '../../sample/i18n/'),
         watch: true
     },
     resolvers: [new HeaderResolver(['language'])],

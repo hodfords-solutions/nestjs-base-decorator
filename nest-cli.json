@@ -2,16 +2,5 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "./",
   "entryFile": "sample/main.js",
-  "compilerOptions": {
-      "assets": [
-          {
-              "include": "sample/**/*",
-              "outDir": "dist/sample"
-          },
-          {
-              "include": "lib/**/*",
-              "outDir": "dist/lib"
-          }
-      ]
-  }
+  "compilerOptions": {}
 }
