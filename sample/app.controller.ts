@@ -20,7 +20,7 @@ import {
     Timestamp,
     Timezone,
     UserAgent
-} from 'lib';
+} from '../lib/index.js';
 import { CategoryEnum, StatusEnum } from './app.enum.js';
 
 @Controller()
