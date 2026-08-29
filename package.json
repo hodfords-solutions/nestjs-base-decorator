@@ -1,10 +1,10 @@
 {
     "name": "@hodfords/nestjs-base-decorator",
-    "version": "12.0.1",
+    "version": "12.1.0",
     "description": "Provides common decorators for simplifying and standardizing NestJS application development",
     "main": "./index.js",
     "scripts": {
-        "prebuild": "rimraf dist",
+        "prebuild": "rimraf dist *.tsbuildinfo",
         "start:dev": "npm run prebuild && nest start --watch -p tsconfig.sample.json",
         "build": "tsc",
         "format": "prettier --write \"lib/**/*.ts\"",
@@ -61,7 +61,7 @@
         "rimraf": "6.1.2",
         "rxjs": "7.8.2",
         "typeorm": "1.1.0",
-        "typescript": "5.9.3",
+        "typescript": "6.0.3",
         "unplugin-swc": "^1.5.7",
         "uuid": "13.0.0",
         "vitest": "^4.1.10"
