@@ -6,7 +6,7 @@ import {
     ValidatorConstraintInterface
 } from 'class-validator';
 import { BaseEntity } from 'typeorm';
-import { getDataSource } from '@hodfords/typeorm-helper';
+import { requireDataSource } from '../helpers/data-source.helper.js';
 import { uniq } from 'es-toolkit';
 
 @ValidatorConstraint({ async: true })
@@ -23,7 +23,7 @@ export class ExistIdsValidator implements ValidatorConstraintInterface {
             return true;
         }
 
-        const result = await getDataSource()
+        const result = await requireDataSource()
             .createQueryBuilder()
             .from(data.table, data.table.name)
             .select('id')

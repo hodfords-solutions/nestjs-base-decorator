@@ -1,17 +1,18 @@
 {
     "name": "@hodfords/nestjs-base-decorator",
-    "version": "12.2.0",
+    "version": "12.3.0",
+    "packageManager": "pnpm@12.0.0",
     "description": "Provides common decorators for simplifying and standardizing NestJS application development",
     "main": "./index.js",
     "scripts": {
         "prebuild": "rimraf dist *.tsbuildinfo",
-        "start:dev": "npm run prebuild && nest start --watch -p tsconfig.sample.json",
+        "start:dev": "pnpm run prebuild && nest start --watch -p tsconfig.sample.json",
         "build": "tsc",
         "format": "prettier --write \"lib/**/*.ts\"",
         "postbuild": "cp package.json dist && cp README.md dist && cp .npmrc dist",
         "prepare": "is-ci || husky",
         "version": "auto-changelog && git add CHANGELOG.md",
-        "release:patch": "git add CHANGELOG.md && npm version patch --tag-version-prefix='' -f -m 'chore: release to %s'",
+        "release:patch": "git add CHANGELOG.md && pnpm version patch --tag-version-prefix='' -f -m 'chore: release to %s'",
         "release:push": "git push --no-verify && git push --tags --no-verify",
         "cspell": "cspell",
         "lint": "eslint \"lib/**/*.ts\" --fix --max-warnings 0",
@@ -32,40 +33,41 @@
     },
     "homepage": "https://github.com/hodfords-solutions/nestjs-base-decorator#readme",
     "devDependencies": {
-        "@hodfords/nestjs-cls-translation": "12.0.0",
-        "@hodfords/nestjs-eslint-config": "11.0.2",
-        "@hodfords/nestjs-exception": "12.0.0",
-        "@hodfords/nestjs-prettier-config": "11.0.1",
-        "@hodfords/typeorm-helper": "12.0.0",
+        "@hodfords/nestjs-cls-translation": "12.1.0",
+        "@hodfords/nestjs-eslint-config": "11.0.4",
+        "@hodfords/nestjs-exception": "12.1.0",
+        "@hodfords/nestjs-prettier-config": "11.0.2",
+        "@hodfords/typeorm-helper": "12.1.0",
         "@nestjs/common": "12.0.1",
         "@nestjs/core": "12.0.1",
         "@nestjs/microservices": "12.0.1",
         "@nestjs/platform-express": "12.0.1",
-        "@nestjs/swagger": "12.0.0",
+        "@nestjs/swagger": "12.0.1",
         "@nestjs/testing": "12.0.1",
         "@nestjs/typeorm": "12.0.1",
-        "@swc/core": "^1.13.5",
-        "@types/multer": "2.0.0",
-        "@types/node": "25.2.0",
+        "@swc/core": "^1.16.1",
+        "@types/express": "5.0.6",
+        "@types/multer": "2.2.0",
+        "@types/node": "26.4.0",
         "@types/uuid": "11.0.0",
         "@types/validator": "13.15.10",
-        "auto-changelog": "2.5.0",
+        "auto-changelog": "2.6.0",
         "class-transformer": "0.5.1",
         "class-validator": "npm:@hodfords/turbo-validator@1.0.0",
-        "cspell": "9.6.3",
-        "eslint": "9.39.2",
+        "cspell": "10.1.1",
+        "eslint": "10.9.1",
         "husky": "9.1.7",
         "is-ci": "4.1.0",
-        "lint-staged": "16.2.7",
-        "multer": "2.2.0",
-        "prettier": "3.8.1",
+        "lint-staged": "17.4.1",
+        "multer": "2.3.0",
+        "prettier": "3.9.6",
         "reflect-metadata": "0.2.2",
-        "rimraf": "6.1.2",
+        "rimraf": "6.1.3",
         "rxjs": "7.8.2",
         "typeorm": "1.1.0",
         "typescript": "6.0.3",
-        "unplugin-swc": "^1.5.7",
-        "vitest": "^4.1.10"
+        "unplugin-swc": "^1.5.11",
+        "vitest": "^4.1.11"
     },
     "peerDependencies": {
         "@hodfords/nestjs-exception": ">=12.0.0",
@@ -94,9 +96,9 @@
     },
     "dependencies": {
         "@supercharge/request-ip": "1.2.0",
-        "dayjs": "1.11.19",
-        "es-toolkit": "1.51.0",
-        "uuid": "^13.0.0"
+        "dayjs": "1.11.23",
+        "es-toolkit": "1.52.0",
+        "uuid": "^14.0.2"
     },
     "type": "module",
     "types": "./index.d.ts",
@@ -110,11 +112,5 @@
     },
     "engines": {
         "node": ">=20.19.0"
-    },
-    "overrides": {
-        "nestjs-cls": {
-            "@nestjs/common": "$@nestjs/common",
-            "@nestjs/core": "$@nestjs/core"
-        }
     }
 }

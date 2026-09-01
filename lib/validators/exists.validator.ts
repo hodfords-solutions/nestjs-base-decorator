@@ -1,4 +1,3 @@
-import { getDataSource } from '@hodfords/typeorm-helper';
 import { isFunction, isNil, isUndefined } from '@nestjs/common/utils/shared.utils.js';
 import {
     registerDecorator,
@@ -11,6 +10,7 @@ import { BaseEntity, SelectQueryBuilder } from 'typeorm';
 import { AndWhereQuery } from '../interfaces/and-where-query.interface.js';
 import { CustomCondition } from '../interfaces/custom-condition.interface.js';
 import { ColumnTypes } from '../types/column-type.type.js';
+import { requireDataSource } from '../helpers/data-source.helper.js';
 
 // TODO Upgrade typeorm
 @ValidatorConstraint({ async: true })
@@ -19,7 +19,7 @@ export class ExistsValidator implements ValidatorConstraintInterface {
         const body = args.object as any;
         const data = args.constraints[0];
         const customs = data.customs || [];
-        const query = getDataSource().createQueryBuilder().from(data.table, data.table.name).select('id');
+        const query = requireDataSource().createQueryBuilder().from(data.table, data.table.name).select('id');
         if (data.caseInsensitive) {
             query.where(` "${data.column}" ILIKE :value`, { value });
         } else {
