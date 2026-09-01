@@ -21,6 +21,9 @@
         "node_modules",
         "test",
         "*.spec.ts",
-        "cspell.json"
+        "cspell.json",
+        "package-lock.json",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml"
     ]
 }
